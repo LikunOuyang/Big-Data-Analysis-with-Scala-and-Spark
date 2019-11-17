@@ -1,4 +1,5 @@
-Wikipedia
+<h1>Wikipedia<h1/>
+
 To start, first download the assignment: wikipedia.zip. For this assignment, you also need to download the data (133 MB):
 
 http://alaska.epfl.ch/~dockermoocs/bigdata/wikipedia.dat
