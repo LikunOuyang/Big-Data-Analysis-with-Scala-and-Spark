@@ -1,4 +1,4 @@
-<h1>StackOverflow</h1>
+<h1>Programming Assignment: StackOverflow</h1>
 To start, first download the assignment: stackoverflow.zip. For this assignment, you also need to download the data (170 MB):
 
 http://alaska.epfl.ch/~dockermoocs/bigdata/stackoverflow.csv
