@@ -101,11 +101,15 @@ object TimeUsage {
     val primary = List("t01", "t03", "t11", "t1801", "t1803")
     val working = List("t05", "t1805")
     val other = List("t02", "t04", "t06", "t07", "t08", "t09", "t10", "t12", "t13", "t14", "t15", "t16", "t18")
-    (
-      columnNames.filter(x=>primary.exists(c=>x.startsWith(c))).map(column),
-      columnNames.filter(x=>working.exists(c=>x.startsWith(c))).map(column),
-      columnNames.filter(x=>other.exists(c=>x.startsWith(c))).map(column)
-    )
+
+    val grouped = columnNames.groupBy(c =>
+      if(primary.exists(c.startsWith)) "primary"
+      else if(working.exists(c.startsWith)) "work"
+      else if(other.exists(c.startsWith)) "other"
+      else "unused"
+    ).mapValues(_.map(column))
+
+    (grouped("primary"), grouped("work"), grouped("other"))
   }
 
   /** @return a projection of the initial DataFrame such that all columns containing hours spent on primary needs
